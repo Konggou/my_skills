@@ -2,21 +2,65 @@
 
 这个仓库包含我在 Cursor 中使用的所有用户级技能，用于在不同系统（Ubuntu 和 Windows）之间同步技能。
 
-## 技能列表
+## 目录结构
 
-### 代码质量
-- **code-review** - 代码审查技能，提供系统化的代码审查工作流程
-- **api-design-principles** - API 设计原则，涵盖 REST 和 GraphQL 设计
+```
+~/.cursor/skills/
+├── anthropics-skills/          # Git Submodule: Anthropics 官方技能仓库
+├── vercel-agent-skills/         # Git Submodule: Vercel Labs 技能仓库
+├── skills-updater/              # Git Submodule: 技能更新管理工具
+├── external/                    # 外部添加的技能（通过 npx add-skill 等）
+│   └── vue-best-practices/      # Vue 3 最佳实践（来源：hyf0/vue-skills）
+├── custom/                      # 本地创建的技能
+│   ├── code-review/             # 代码审查技能
+│   ├── api-design-principles/   # API 设计原则
+│   └── project-framework-analyzer/  # 项目框架分析器
+└── [符号链接]                    # 符号链接，指向 external/ 和 custom/ 中的技能
+    ├── vue-best-practices -> external/vue-best-practices
+    ├── code-review -> custom/code-review
+    ├── api-design-principles -> custom/api-design-principles
+    └── project-framework-analyzer -> custom/project-framework-analyzer
+```
 
-### 前端开发
-- **vue-best-practices** - Vue 3 和 Vue.js 最佳实践（TypeScript, vue-tsc, Volar）
-- **vercel-react-best-practices** - React 和 Next.js 性能优化指南
-- **frontend-design** - 前端设计指南（Anthropics 官方）
-- **web-design-guidelines** - Web 设计指南
+## 技能分类
 
-### 工具类
-- **skill-creator** - 技能创建工具（Anthropics 官方）
-- **skills-updater** - 技能更新管理工具
+### 1. Git Submodule 管理的技能（20个，可独立更新）
+
+#### Anthropics 官方技能（16个）
+- 来源：`https://github.com/anthropics/skills.git`
+- 位置：`anthropics-skills/skills/`
+- 包括：algorithmic-art, brand-guidelines, canvas-design, doc-coauthoring, docx, frontend-design, internal-comms, mcp-builder, pdf, pptx, skill-creator, slack-gif-creator, theme-factory, webapp-testing, web-artifacts-builder, xlsx
+
+#### Vercel 技能（3个）
+- 来源：`https://github.com/vercel-labs/agent-skills.git`
+- 位置：`vercel-agent-skills/skills/`
+- 包括：claude.ai, react-best-practices, web-design-guidelines
+
+#### Skills Updater（1个）
+- 来源：`https://github.com/yizhiyanhua-ai/skills-updater.git`
+- 位置：`skills-updater/`
+
+### 2. 外部添加的技能（1个，在主仓库中管理）
+
+- **vue-best-practices**
+  - 来源：`hyf0/vue-skills`
+  - 添加方式：`npx add-skill hyf0/vue-skills`
+  - 位置：`external/vue-best-practices/`
+  - 符号链接：`vue-best-practices -> external/vue-best-practices`
+
+### 3. 本地创建的技能（3个，在主仓库中管理）
+
+- **code-review** - 代码审查技能
+  - 位置：`custom/code-review/`
+  - 符号链接：`code-review -> custom/code-review`
+
+- **api-design-principles** - API 设计原则
+  - 位置：`custom/api-design-principles/`
+  - 符号链接：`api-design-principles -> custom/api-design-principles`
+
+- **project-framework-analyzer** - 项目框架分析器
+  - 位置：`custom/project-framework-analyzer/`
+  - 符号链接：`project-framework-analyzer -> custom/project-framework-analyzer`
 
 ## 安装方法
 
@@ -38,28 +82,34 @@ git submodule update --init --recursive
 
 ## 更新技能
 
-### 更新主仓库和所有 submodule
+### 更新所有 Submodule
 ```bash
 cd ~/.cursor/skills
-git pull origin main
 git submodule update --remote --merge
 ```
 
-### 更新特定的 submodule
+### 更新特定的 Submodule
 ```bash
-# 更新 Anthropics 官方技能（frontend-design, skill-creator）
+# 更新 Anthropics 官方技能
 cd ~/.cursor/skills/anthropics-skills
 git pull origin main
 cd ~/.cursor/skills
 git add anthropics-skills
 git commit -m "更新 Anthropics 技能"
 
-# 更新 Vercel 技能（vercel-react-best-practices, web-design-guidelines）
+# 更新 Vercel 技能
 cd ~/.cursor/skills/vercel-agent-skills
 git pull origin main
 cd ~/.cursor/skills
 git add vercel-agent-skills
 git commit -m "更新 Vercel 技能"
+
+# 更新 Skills Updater
+cd ~/.cursor/skills/skills-updater
+git pull origin main
+cd ~/.cursor/skills
+git add skills-updater
+git commit -m "更新 Skills Updater"
 ```
 
 ### 更新本地技能（在主仓库中管理）
@@ -68,37 +118,34 @@ cd ~/.cursor/skills
 git pull origin main
 ```
 
-## 技能管理方式
+## 技能管理说明
 
 ### Git Submodule（可独立更新）
 以下技能使用 Git Submodule 管理，保留自己的 Git 仓库，可以独立更新：
 
-- **frontend-design** → `anthropics-skills/skills/frontend-design` (符号链接)
-- **skill-creator** → `anthropics-skills/skills/skill-creator` (符号链接)
-- **vercel-react-best-practices** → `vercel-agent-skills/skills/react-best-practices` (符号链接)
-- **web-design-guidelines** → `vercel-agent-skills/skills/web-design-guidelines` (符号链接)
-
-**Submodule 仓库：**
 - `anthropics-skills` - Anthropics 官方技能仓库
 - `vercel-agent-skills` - Vercel Labs 技能仓库
+- `skills-updater` - 技能更新管理工具
 
-### 本地管理（在主仓库中）
-以下技能直接在主仓库中管理，通过 `git pull` 同步：
+### 文件夹组织
+- **external/** - 存放从外部来源添加的技能（通过 npx add-skill 等）
+- **custom/** - 存放本地创建的技能
+- **符号链接** - 在根目录创建符号链接，确保 Cursor 能够识别子目录中的技能
 
-- **code-review** - 代码审查技能
-- **api-design-principles** - API 设计原则
-- **vue-best-practices** - Vue 3 最佳实践
-- **skills-updater** - 技能更新管理工具
-
-## 技能来源
-
-- **Anthropics 官方**: frontend-design, skill-creator (通过 submodule)
-- **Vercel Labs**: vercel-react-best-practices, web-design-guidelines (通过 submodule)
-- **第三方**: vue-best-practices, skills-updater (本地管理)
-- **本地创建**: code-review, api-design-principles (本地管理)
+### 符号链接的作用
+符号链接确保 Cursor 能够识别 `external/` 和 `custom/` 目录中的技能，因为 Cursor 通常只在根目录的直接子目录中查找技能。
 
 ## 注意事项
 
-- 符号链接的技能指向 submodule 中的实际目录，确保跨平台兼容性
+- 符号链接的技能指向 `external/` 和 `custom/` 中的实际目录
 - 更新 submodule 后需要提交主仓库以记录新的 submodule 版本
 - 如果需要在 Windows 上使用，确保 Git 配置支持符号链接（需要管理员权限或启用 `core.symlinks=true`）
+- 不要直接修改 `external/` 和 `custom/` 目录中的技能，应该通过符号链接访问
+
+## 技能统计
+
+- **Git Submodule**: 20 个（Anthropics 16 + Vercel 3 + Skills Updater 1）
+- **外部添加**: 1 个（vue-best-practices）
+- **本地创建**: 3 个（code-review, api-design-principles, project-framework-analyzer）
+
+**总计：24 个技能**

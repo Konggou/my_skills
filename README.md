@@ -11,15 +11,10 @@
 ├── skills-updater/              # Git Submodule: 技能更新管理工具
 ├── external/                    # 外部添加的技能（通过 npx add-skill 等）
 │   └── vue-best-practices/      # Vue 3 最佳实践（来源：hyf0/vue-skills）
-├── custom/                      # 本地创建的技能
-│   ├── code-review/             # 代码审查技能
-│   ├── api-design-principles/   # API 设计原则
-│   └── project-framework-analyzer/  # 项目框架分析器
-└── [符号链接]                    # 符号链接，指向 external/ 和 custom/ 中的技能
-    ├── vue-best-practices -> external/vue-best-practices
-    ├── code-review -> custom/code-review
-    ├── api-design-principles -> custom/api-design-principles
-    └── project-framework-analyzer -> custom/project-framework-analyzer
+└── custom/                      # 本地创建的技能
+    ├── code-review/             # 代码审查技能
+    ├── api-design-principles/   # API 设计原则
+    └── project-framework-analyzer/  # 项目框架分析器
 ```
 
 ## 技能分类
@@ -46,21 +41,17 @@
   - 来源：`hyf0/vue-skills`
   - 添加方式：`npx add-skill hyf0/vue-skills`
   - 位置：`external/vue-best-practices/`
-  - 符号链接：`vue-best-practices -> external/vue-best-practices`
 
 ### 3. 本地创建的技能（3个，在主仓库中管理）
 
 - **code-review** - 代码审查技能
   - 位置：`custom/code-review/`
-  - 符号链接：`code-review -> custom/code-review`
 
 - **api-design-principles** - API 设计原则
   - 位置：`custom/api-design-principles/`
-  - 符号链接：`api-design-principles -> custom/api-design-principles`
 
 - **project-framework-analyzer** - 项目框架分析器
   - 位置：`custom/project-framework-analyzer/`
-  - 符号链接：`project-framework-analyzer -> custom/project-framework-analyzer`
 
 ## 安装方法
 
@@ -130,17 +121,13 @@ git pull origin main
 ### 文件夹组织
 - **external/** - 存放从外部来源添加的技能（通过 npx add-skill 等）
 - **custom/** - 存放本地创建的技能
-- **符号链接** - 在根目录创建符号链接，确保 Cursor 能够识别子目录中的技能
 
-### 符号链接的作用
-符号链接确保 Cursor 能够识别 `external/` 和 `custom/` 目录中的技能，因为 Cursor 通常只在根目录的直接子目录中查找技能。
+Cursor 支持递归查找子目录中的技能，因此不需要符号链接即可识别 `external/` 和 `custom/` 目录中的技能。
 
 ## 注意事项
 
-- 符号链接的技能指向 `external/` 和 `custom/` 中的实际目录
 - 更新 submodule 后需要提交主仓库以记录新的 submodule 版本
-- 如果需要在 Windows 上使用，确保 Git 配置支持符号链接（需要管理员权限或启用 `core.symlinks=true`）
-- 不要直接修改 `external/` 和 `custom/` 目录中的技能，应该通过符号链接访问
+- Cursor 会自动递归查找子目录中的技能，无需符号链接
 
 ## 技能统计
 

@@ -10,6 +10,7 @@
 ├── vercel-agent-skills/         # Git Submodule: Vercel Labs 技能仓库
 ├── skills-updater/              # Git Submodule: 技能更新管理工具
 ├── external/                    # 外部添加的技能（通过 npx add-skill 等）
+│   ├── brainstorming/           # 头脑风暴技能（来源：obra/superpowers）
 │   └── vue-best-practices/      # Vue 3 最佳实践（来源：hyf0/vue-skills）
 └── custom/                      # 本地创建的技能
     ├── code-review/             # 代码审查技能
@@ -35,7 +36,13 @@
 - 来源：`https://github.com/yizhiyanhua-ai/skills-updater.git`
 - 位置：`skills-updater/`
 
-### 2. 外部添加的技能（1个，在主仓库中管理）
+### 2. 外部添加的技能（2个，在主仓库中管理）
+
+- **brainstorming**
+  - 来源：`obra/superpowers`
+  - 添加方式：`npx skills add https://github.com/obra/superpowers --skill brainstorming`
+  - 位置：`external/brainstorming/`
+  - 描述：在创意工作前使用，探索用户意图、需求和设计
 
 - **vue-best-practices**
   - 来源：`hyf0/vue-skills`
@@ -132,7 +139,7 @@ Cursor 支持递归查找子目录中的技能，因此不需要符号链接即�
 ## 技能统计
 
 - **Git Submodule**: 20 个（Anthropics 16 + Vercel 3 + Skills Updater 1）
-- **外部添加**: 1 个（vue-best-practices）
+- **外部添加**: 2 个（brainstorming, vue-best-practices）
 - **本地创建**: 3 个（code-review, api-design-principles, project-framework-analyzer）
 
-**总计：24 个技能**
+**总计：25 个技能**

@@ -1,0 +1,16 @@
+# 排除已有 git 连接的技能目录的 .git 文件夹
+frontend-design/.git/
+skill-creator/.git/
+skills-updater/.git/
+
+# 排除符号链接指向的目录（这些在 .agents/skills 中）
+.agents/
+
+# 排除临时文件
+*.tmp
+*.bak
+*~
+
+# 排除系统文件
+.DS_Store
+Thumbs.db

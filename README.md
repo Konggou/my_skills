@@ -1,178 +1,224 @@
 # AI Skills 仓库
 
-这个仓库包含用于 AI 编程助手（如 Cursor、CodeBuddy Code 等）的用户级技能集合，支持在不同系统（Ubuntu 和 Windows）之间同步技能。
+这个仓库包含用于支持 Skill 功能的 AI 编程助手的用户级技能集合，支持在不同系统（Ubuntu 和 Windows）之间同步技能。
+
+## 什么是 Skills？
+
+Skills（技能）是一种扩展 AI 编程助手能力的机制，允许开发者创建、分享和使用专门的知识库、工作流程和工具集成。不同的 AI 编程助手可能使用不同的术语（如 Skills、Tools、Plugins 等），但核心概念相似：通过模块化的方式增强 AI 助手的功能。
 
 ## 目录结构
 
-
+```
+.
+├── anthropics-skills/     # Anthropics 官方技能（Git Submodule）
+├── vercel-agent-skills/   # Vercel Labs 技能（Git Submodule）
+├── skills-cursor/         # Cursor 特定技能（Git Submodule）
+├── external/              # 外部添加的技能
+├── custom/                # 本地创建的技能
+└── README.md              # 本文件
+```
 
 ## 技能分类
 
 ### 1. Git Submodule 管理的技能（20个，可独立更新）
 
 #### Anthropics 官方技能（16个）
-- 来源：
-- 位置：
-- 包括：algorithmic-art, brand-guidelines, canvas-design, doc-coauthoring, docx, frontend-design, internal-comms, mcp-builder, pdf, pptx, skill-creator, slack-gif-creator, theme-factory, webapp-testing, web-artifacts-builder, xlsx
+
+- **来源**: [anthropics/skills](https://github.com/anthropics/skills)
+- **位置**: `anthropics-skills/skills/`
+- **包括**: algorithmic-art, brand-guidelines, canvas-design, doc-coauthoring, docx, frontend-design, internal-comms, mcp-builder, pdf, pptx, skill-creator, slack-gif-creator, theme-factory, webapp-testing, web-artifacts-builder, xlsx
 
 #### Vercel 技能（3个）
-- 来源：
-- 位置：
-- 包括：claude.ai, react-best-practices, web-design-guidelines
+
+- **来源**: [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
+- **位置**: `vercel-agent-skills/skills/`
+- **包括**: claude.ai, react-best-practices, web-design-guidelines
 
 #### Skills Updater（1个）
-- 来源：
-- 位置：
+
+- **来源**: [yizhiyanhua-ai/skills-updater](https://github.com/yizhiyanhua-ai/skills-updater)
+- **位置**: `skills-updater/`
+- **描述**: 用于管理和更新技能的实用工具
 
 ### 2. 外部添加的技能（2个，在主仓库中管理）
 
 - **brainstorming**
-  - 来源：
-  - 添加方式：
-[38;5;250m███████╗██╗  ██╗██╗██╗     ██╗     ███████╗[0m
-[38;5;248m██╔════╝██║ ██╔╝██║██║     ██║     ██╔════╝[0m
-[38;5;245m███████╗█████╔╝ ██║██║     ██║     ███████╗[0m
-[38;5;243m╚════██║██╔═██╗ ██║██║     ██║     ╚════██║[0m
-[38;5;240m███████║██║  ██╗██║███████╗███████╗███████║[0m
-[38;5;238m╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝[0m
-
-┌   skills 
-│
-│  Tip: use the --yes (-y) and --global (-g) flags to install without prompts.
-[?25l│
-◇  Source: https://github.com/obra/superpowers.git
-[?25h[?25l│
-◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository.[999D[J◐  Cloning repository.[999D[J◓  Cloning repository.[999D[J◑  Cloning repository.[999D[J◒  Cloning repository.[999D[J◐  Cloning repository.[999D[J◓  Cloning repository.[999D[J◑  Cloning repository.[999D[J◒  Cloning repository..[999D[J◐  Cloning repository..[999D[J◓  Cloning repository..[999D[J◑  Cloning repository..[999D[J◒  Cloning repository..[999D[J◐  Cloning repository..[999D[J◓  Cloning repository..[999D[J◑  Cloning repository..[999D[J◒  Cloning repository...[999D[J◐  Cloning repository...[999D[J◓  Cloning repository...[999D[J◇  Repository cloned
-[?25h[?25l│
-[999D[J◇  Found 14 skills (via Well-known Agent Skill Discovery)
-[?25h│
-●  Selected 1 skill: brainstorming
-[?25l│
-[999D[J◇  Detected 3 agents
-[?25h[?25l│
-◆  Install to
-│
-└
-  - 位置：
-  - 描述：在创意工作前使用，探索用户意图、需求和设计
+  - **来源**: [obra/superpowers](https://github.com/obra/superpowers)
+  - **位置**: `external/brainstorming/`
+  - **添加方式**: `npx skills add obra/superpowers`
+  - **描述**: 在创意工作前使用，探索用户意图、需求和设计
 
 - **vue-best-practices**
-  - 来源：
-  - 添加方式：
-[33m[1mDEPRECATED:[0m[33m 'add-skill' has been renamed to 'skills'[0m
-
-  Please use: [1mnpx skills add <package>[0m
-
-  Example: npx skills add vercel-labs/agent-skills
-
-[33mForwarding to 'npx skills add'...[0m
-
-
-[38;5;250m███████╗██╗  ██╗██╗██╗     ██╗     ███████╗[0m
-[38;5;248m██╔════╝██║ ██╔╝██║██║     ██║     ██╔════╝[0m
-[38;5;245m███████╗█████╔╝ ██║██║     ██║     ███████╗[0m
-[38;5;243m╚════██║██╔═██╗ ██║██║     ██║     ╚════██║[0m
-[38;5;240m███████║██║  ██╗██║███████╗███████╗███████║[0m
-[38;5;238m╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝[0m
-
-┌   skills 
-│
-│  Tip: use the --yes (-y) and --global (-g) flags to install without prompts.
-[?25l│
-◇  Source: https://github.com/hyf0/vue-skills.git
-[?25h[?25l│
-◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository.[999D[J◐  Cloning repository.[999D[J◓  Cloning repository.[999D[J◑  Cloning repository.[999D[J◒  Cloning repository.[999D[J◐  Cloning repository.[999D[J◓  Cloning repository.[999D[J◇  Repository cloned
-[?25h[?25l│
-[999D[J◇  Found 1 skill (via Well-known Agent Skill Discovery)
-[?25h│
-●  Skill: vue-best-practices
-│
-│  Vue 3 and Vue.js best practices for TypeScript, vue-tsc, and Volar. This skill should be used when writing, reviewing, or refactoring Vue components to ensure correct typing patterns. Triggers on tasks involving Vue components, props extraction, wrapper components, template type checking, or Volar configuration.
-[?25l│
-[999D[J◇  Detected 3 agents
-[?25h[?25l│
-◆  Install to
-│
-└
-  - 位置：
+  - **来源**: [hyf0/vue-skills](https://github.com/hyf0/vue-skills)
+  - **位置**: `external/vue-best-practices/`
+  - **添加方式**: `npx skills add hyf0/vue-skills`
+  - **描述**: Vue 3 和 Vue.js 最佳实践，用于 TypeScript、vue-tsc 和 Volar
 
 ### 3. 本地创建的技能（3个，在主仓库中管理）
 
 - **code-review** - 代码审查技能
-  - 位置：
+  - **位置**: `custom/code-review/`
+  - **描述**: 提供系统化的代码审查工作流程，检查逻辑错误、格式问题、冗余代码、内存/线程泄漏和优化机会
 
 - **api-design-principles** - API 设计原则
-  - 位置：
+  - **位置**: `custom/api-design-principles/`
+  - **描述**: 掌握 REST 和 GraphQL API 设计原则，构建直观、可扩展和可维护的 API
 
 - **project-framework-analyzer** - 项目框架分析器
-  - 位置：
+  - **位置**: `custom/project-framework-analyzer/`
+  - **描述**: 分析项目框架架构、功能模块和模块间关系的技能
 
 ## 安装方法
 
-### CodeBuddy Code 用户
+### 基本要求
 
-#### 在 Ubuntu/Linux 上
+- Git（用于管理仓库和 Submodule）
+- Node.js 和 npm（用于使用 npx 工具添加外部技能）
+- 支持 Skill 功能的 AI 编程助手
 
+### 克隆仓库
 
-#### 在 Windows 上
+```bash
+git clone https://github.com/Konggou/my_skills.git
+cd my_skills
+```
 
+### 初始化 Submodule
 
-### Cursor 用户
+```bash
+# 初始化所有 Submodule
+git submodule update --init --recursive
 
-#### 在 Ubuntu/Linux 上
+# 或者逐个初始化
+git submodule update --init --recursive anthropics-skills
+git submodule update --init --recursive vercel-agent-skills
+git submodule update --init --recursive skills-cursor
+```
 
+### 配置 AI 编程助手
 
-#### 在 Windows 上
+不同的 AI 编程助手可能有不同的配置方式。通常需要将技能目录添加到助手的配置中。
 
+#### 示例：Cursor
+
+在 Cursor 中，技能通常位于 `~/.cursor/skills/` 目录。你可以：
+
+1. **创建符号链接**（推荐）：
+   ```bash
+   # Linux/macOS
+   ln -s /path/to/my_skills/anthropics-skills/skills ~/.cursor/skills/anthropics-skills
+   ln -s /path/to/my_skills/vercel-agent-skills/skills ~/.cursor/skills/vercel-agent-skills
+   ln -s /path/to/my_skills/external ~/.cursor/skills/external
+   ln -s /path/to/my_skills/custom ~/.cursor/skills/custom
+   
+   # Windows (PowerShell)
+   New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.cursor\skills\anthropics-skills" -Target "C:\path\to\my_skills\anthropics-skills\skills"
+   ```
+
+2. **直接复制**（如果符号链接不支持）：
+   ```bash
+   cp -r anthropics-skills/skills/* ~/.cursor/skills/
+   cp -r vercel-agent-skills/skills/* ~/.cursor/skills/
+   cp -r external/* ~/.cursor/skills/
+   cp -r custom/* ~/.cursor/skills/
+   ```
+
+#### 示例：其他 AI 编程助手
+
+请参考你使用的 AI 编程助手的官方文档，了解如何配置技能目录。大多数助手支持：
+- 递归查找子目录中的技能
+- 通过配置文件指定技能路径
+- 自动发现符合特定格式的技能目录
 
 ## 更新技能
 
 ### 更新所有 Submodule
 
+```bash
+git submodule update --remote --recursive
+```
 
 ### 更新特定的 Submodule
-已经是最新的。
-位于分支 main
-您的分支领先 'origin/main' 共 1 个提交。
-  （使用 "git push" 来发布您的本地提交）
 
-无文件要提交，干净的工作区
-已经是最新的。
-位于分支 main
-您的分支领先 'origin/main' 共 1 个提交。
-  （使用 "git push" 来发布您的本地提交）
+```bash
+# 更新 Anthropics 技能
+cd anthropics-skills
+git pull origin main
+cd ..
 
-无文件要提交，干净的工作区
-已经是最新的。
-位于分支 main
-您的分支领先 'origin/main' 共 1 个提交。
-  （使用 "git push" 来发布您的本地提交）
+# 更新 Vercel 技能
+cd vercel-agent-skills
+git pull origin main
+cd ..
 
-无文件要提交，干净的工作区
+# 更新 Cursor 技能
+cd skills-cursor
+git pull origin main
+cd ..
+```
 
 ### 更新本地技能（在主仓库中管理）
-已经是最新的。
+
+```bash
+git pull origin main
+```
+
+### 提交 Submodule 更新
+
+更新 Submodule 后，需要提交主仓库以记录新的 Submodule 版本：
+
+```bash
+git add anthropics-skills vercel-agent-skills skills-cursor
+git commit -m "更新技能 Submodule"
+git push
+```
 
 ## 技能管理说明
 
 ### Git Submodule（可独立更新）
+
 以下技能使用 Git Submodule 管理，保留自己的 Git 仓库，可以独立更新：
 
--  - Anthropics 官方技能仓库
--  - Vercel Labs 技能仓库
--  - 技能更新管理工具
+- **anthropics-skills/** - Anthropics 官方技能仓库
+- **vercel-agent-skills/** - Vercel Labs 技能仓库
+- **skills-cursor/** - Cursor 特定技能仓库
+- **skills-updater/** - 技能更新管理工具
 
 ### 文件夹组织
-- **external/** - 存放从外部来源添加的技能（通过 npx add-skill 等）
+
+- **external/** - 存放从外部来源添加的技能（通过 `npx skills add` 等工具）
 - **custom/** - 存放本地创建的技能
 
-大多数 AI 编程助手支持递归查找子目录中的技能，因此不需要符号链接即可识别  和  目录中的技能。
+大多数 AI 编程助手支持递归查找子目录中的技能，因此不需要符号链接即可识别 `external/` 和 `custom/` 目录中的技能。
+
+### 添加新技能
+
+#### 从外部源添加
+
+使用 `npx skills add` 工具：
+
+```bash
+npx skills add <repository-url-or-name>
+```
+
+例如：
+```bash
+npx skills add obra/superpowers
+npx skills add hyf0/vue-skills
+```
+
+#### 创建本地技能
+
+1. 在 `custom/` 目录下创建新文件夹
+2. 按照你使用的 AI 编程助手的技能格式要求创建 `SKILL.md` 文件
+3. 参考现有技能的结构和格式
 
 ## 注意事项
 
 - 更新 submodule 后需要提交主仓库以记录新的 submodule 版本
 - AI 助手会自动递归查找子目录中的技能，无需符号链接
 - 不同的 AI 助手可能对技能格式有不同要求，请参考各自的文档
+- 建议定期更新 Submodule 以获取最新功能和修复
 
 ## 技能统计
 
@@ -185,13 +231,31 @@
 ## 兼容性
 
 本技能仓库兼容以下 AI 编程助手：
+
 - ✅ Cursor
 - ✅ CodeBuddy Code
 - ✅ 其他支持类似技能格式的 AI 助手
 
+> **注意**: 不同 AI 编程助手可能使用不同的技能格式和配置方式。本仓库主要遵循 Cursor 和 Claude 的技能格式规范，但结构设计通用，可以适配其他支持类似机制的 AI 助手。
+
+## 贡献
+
+欢迎贡献新的技能或改进现有技能！请遵循以下步骤：
+
+1. Fork 本仓库
+2. 创建你的功能分支 (`git checkout -b feature/AmazingSkill`)
+3. 提交你的更改 (`git commit -m 'Add some AmazingSkill'`)
+4. 推送到分支 (`git push origin feature/AmazingSkill`)
+5. 开启 Pull Request
+
 ## 相关链接
 
-- **本仓库**: https://github.com/Konggou/my_skills
-- **Anthropics Skills**: https://github.com/anthropics/skills
-- **Vercel Agent Skills**: https://github.com/vercel-labs/agent-skills
-- **Skills Updater**: https://github.com/yizhiyanhua-ai/skills-updater
+- **本仓库**: [https://github.com/Konggou/my_skills](https://github.com/Konggou/my_skills)
+- **Anthropics Skills**: [https://github.com/anthropics/skills](https://github.com/anthropics/skills)
+- **Vercel Agent Skills**: [https://github.com/vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
+- **Skills Updater**: [https://github.com/yizhiyanhua-ai/skills-updater](https://github.com/yizhiyanhua-ai/skills-updater)
+- **Cursor Skills 文档**: [https://docs.cursor.com](https://docs.cursor.com)
+
+## 许可证
+
+本仓库中的技能可能使用不同的许可证。请查看各个技能目录中的 LICENSE 文件了解详情。

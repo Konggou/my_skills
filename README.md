@@ -245,6 +245,20 @@ npx skills add hyf0/vue-skills
 2. 按照你使用的 AI 编程助手的技能格式要求创建 `SKILL.md` 文件
 3. 参考现有技能的结构和格式
 
+## 实用工具
+
+### `move_skills.py`
+
+此脚本用于整理技能目录，将分散在各子目录（如 `anthropics-skills/skills`, `custom/` 等）中的技能移动到根技能目录 (`~/.trae/skills`)。这对于一些不支持递归搜索技能的 AI 助手非常有用。
+
+**用法**:
+
+```bash
+python move_skills.py
+```
+
+脚本会自动检测操作系统并找到正确的技能根目录。
+
 ## 跨工具使用
 
 本技能集合设计为通用格式，可以在多个 AI 编程助手工具之间共享：

@@ -1,134 +1,134 @@
-# AI Skills 仓库
+# AI Skills Repository
 
-这个仓库包含用于支持 Skill 功能的 AI 编程助手的用户级技能集合，支持在不同系统（Ubuntu 和 Windows）之间同步技能。支持多种 AI 编程助手工具（如 Cursor、Claude Code、Windsurf 等）。
+This repository contains a collection of user-level skills for AI programming assistants that support the Skill feature. It supports syncing skills across different systems (Ubuntu and Windows) and is compatible with various AI programming assistant tools (such as Cursor, Claude Code, Windsurf, etc.).
 
-## 什么是 Skills？
+## What are Skills?
 
-Skills（技能）是一种扩展 AI 编程助手能力的机制，允许开发者创建、分享和使用专门的知识库、工作流程和工具集成。不同的 AI 编程助手可能使用不同的术语（如 Skills、Tools、Plugins 等），但核心概念相似：通过模块化的方式增强 AI 助手的功能。
+Skills are a mechanism for extending the capabilities of AI programming assistants, allowing developers to create, share, and use specialized knowledge bases, workflows, and tool integrations. Different AI programming assistants may use different terms (such as Skills, Tools, Plugins, etc.), but the core concept is similar: enhancing the functionality of the AI assistant in a modular way.
 
-## 目录结构
+## Directory Structure
 
 ```
-~/.cursor/skills/  # 或其他 AI 工具的 skills 目录
-├── anthropics-skills/          # Git Submodule: Anthropics 官方技能仓库
-├── vercel-agent-skills/         # Git Submodule: Vercel Labs 技能仓库
-├── skills-updater/              # Git Submodule: 技能更新管理工具
-├── external/                    # 外部添加的技能（通过 npx add-skill 等）
-│   ├── brainstorming/           # 头脑风暴技能（来源：obra/superpowers）
-│   └── vue-best-practices/      # Vue 3 最佳实践（来源：hyf0/vue-skills）
-└── custom/                      # 本地创建的技能
-    ├── code-review/             # 代码审查技能
-    ├── api-design-principles/   # API 设计原则
-    ├── project-framework-analyzer/  # 项目框架分析器
-    ├── qt-ui-framework/          # Qt UI 框架搭建技能
-    └── qt-backend-framework/     # Qt 后端服务框架技能
+~/.cursor/skills/  # Or the skills directory of other AI tools
+├── anthropics-skills/          # Git Submodule: Official Anthropics Skills Repository
+├── vercel-agent-skills/         # Git Submodule: Vercel Labs Skills Repository
+├── skills-updater/              # Git Submodule: Skill Update Management Tool
+├── external/                    # Externally added skills (e.g., via npx add-skill)
+│   ├── brainstorming/           # Brainstorming skill (Source: obra/superpowers)
+│   └── vue-best-practices/      # Vue 3 best practices (Source: hyf0/vue-skills)
+└── custom/                      # Locally created skills
+    ├── code-review/             # Code review skill
+    ├── api-design-principles/   # API design principles skill
+    ├── project-framework-analyzer/  # Project framework analyzer skill
+    ├── qt-ui-framework/          # Qt UI framework setup skill
+    └── qt-backend-framework/     # Qt backend service framework skill
 ```
 
-## 技能分类
+## Skill Categories
 
-### 1. Git Submodule 管理的技能（20个，可独立更新）
+### 1. Skills Managed by Git Submodule (20, can be updated independently)
 
-#### Anthropics 官方技能（16个）
+#### Official Anthropics Skills (16)
 
-- **来源**: [anthropics/skills](https://github.com/anthropics/skills)
-- **位置**: `anthropics-skills/skills/`
-- **包括**: algorithmic-art, brand-guidelines, canvas-design, doc-coauthoring, docx, frontend-design, internal-comms, mcp-builder, pdf, pptx, skill-creator, slack-gif-creator, theme-factory, webapp-testing, web-artifacts-builder, xlsx
+- **Source**: [anthropics/skills](https://github.com/anthropics/skills)
+- **Location**: `anthropics-skills/skills/`
+- **Includes**: algorithmic-art, brand-guidelines, canvas-design, doc-coauthoring, docx, frontend-design, internal-comms, mcp-builder, pdf, pptx, skill-creator, slack-gif-creator, theme-factory, webapp-testing, web-artifacts-builder, xlsx
 
-#### Vercel 技能（3个）
+#### Vercel Skills (3)
 
-- **来源**: [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
-- **位置**: `vercel-agent-skills/skills/`
-- **包括**: claude.ai, react-best-practices, web-design-guidelines
+- **Source**: [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
+- **Location**: `vercel-agent-skills/skills/`
+- **Includes**: claude.ai, react-best-practices, web-design-guidelines
 
-#### Skills Updater（1个）
+#### Skills Updater (1)
 
-- **来源**: [yizhiyanhua-ai/skills-updater](https://github.com/yizhiyanhua-ai/skills-updater)
-- **位置**: `skills-updater/`
-- **描述**: 用于管理和更新技能的实用工具
+- **Source**: [yizhiyanhua-ai/skills-updater](https://github.com/yizhiyanhua-ai/skills-updater)
+- **Location**: `skills-updater/`
+- **Description**: A utility for managing and updating skills.
 
-### 2. 外部添加的技能（2个，在主仓库中管理）
+### 2. Externally Added Skills (2, managed in the main repository)
 
 - **brainstorming**
-  - **来源**: [obra/superpowers](https://github.com/obra/superpowers)
-  - **位置**: `external/brainstorming/`
-  - **添加方式**: `npx skills add obra/superpowers`
-  - **描述**: 在创意工作前使用，探索用户意图、需求和设计
+  - **Source**: [obra/superpowers](https://github.com/obra/superpowers)
+  - **Location**: `external/brainstorming/`
+  - **How to add**: `npx skills add obra/superpowers`
+  - **Description**: Used before creative work to explore user intent, needs, and design.
 
 - **vue-best-practices**
-  - **来源**: [hyf0/vue-skills](https://github.com/hyf0/vue-skills)
-  - **位置**: `external/vue-best-practices/`
-  - **添加方式**: `npx skills add hyf0/vue-skills`
-  - **描述**: Vue 3 和 Vue.js 最佳实践，用于 TypeScript、vue-tsc 和 Volar
+  - **Source**: [hyf0/vue-skills](https://github.com/hyf0/vue-skills)
+  - **Location**: `external/vue-best-practices/`
+  - **How to add**: `npx skills add hyf0/vue-skills`
+  - **Description**: Best practices for Vue 3 and Vue.js, for use with TypeScript, vue-tsc, and Volar.
 
-### 3. 本地创建的技能（5个，在主仓库中管理）
+### 3. Locally Created Skills (5, managed in the main repository)
 
-- **code-review** - 代码审查技能
-  - **位置**: `custom/code-review/`
-  - **描述**: 提供系统化的代码审查工作流程，检查逻辑错误、格式问题、冗余代码、内存/线程泄漏和优化机会
+- **code-review** - Code Review Skill
+  - **Location**: `custom/code-review/`
+  - **Description**: Provides a systematic code review workflow, checking for logic errors, formatting issues, redundant code, memory/thread leaks, and optimization opportunities.
 
-- **api-design-principles** - API 设计原则
-  - **位置**: `custom/api-design-principles/`
-  - **描述**: 掌握 REST 和 GraphQL API 设计原则，构建直观、可扩展和可维护的 API
+- **api-design-principles** - API Design Principles Skill
+  - **Location**: `custom/api-design-principles/`
+  - **Description**: Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs.
 
-- **project-framework-analyzer** - 项目框架分析器
-  - **位置**: `custom/project-framework-analyzer/`
-  - **描述**: 分析项目框架架构、功能模块和模块间关系的技能
+- **project-framework-analyzer** - Project Framework Analyzer Skill
+  - **Location**: `custom/project-framework-analyzer/`
+  - **Description**: A skill for analyzing project framework architecture, functional modules, and the relationships between modules.
 
-- **qt-ui-framework** - Qt UI 框架搭建技能
-  - **位置**: `custom/qt-ui-framework/`
-  - **描述**: Qt UI 框架搭建，支持 C++ (Qt Widgets) 和 Python (PyQt5/PyQt6)，遵循前后端分离原则
+- **qt-ui-framework** - Qt UI Framework Setup Skill
+  - **Location**: `custom/qt-ui-framework/`
+  - **Description**: Qt UI framework setup, supporting C++ (Qt Widgets) and Python (PyQt5/PyQt6), following the principle of frontend-backend separation.
 
-- **qt-backend-framework** - Qt 后端服务框架技能
-  - **位置**: `custom/qt-backend-framework/`
-  - **描述**: Qt 后端 Controller-Service-Model 架构，支持 C++ 和 Python，可与 qt-ui-framework 配合使用
+- **qt-backend-framework** - Qt Backend Service Framework Skill
+  - **Location**: `custom/qt-backend-framework/`
+  - **Description**: Qt backend Controller-Service-Model architecture, supporting C++ and Python, can be used with qt-ui-framework.
 
-## 安装方法
+## Installation
 
-### 基本要求
+### Prerequisites
 
-- Git（用于管理仓库和 Submodule）
-- Node.js 和 npm（用于使用 npx 工具添加外部技能）
-- 支持 Skill 功能的 AI 编程助手
+- Git (for managing repositories and submodules)
+- Node.js and npm (for adding external skills with npx)
+- An AI programming assistant that supports the Skill feature
 
-### 确定 Skills 目录位置
+### Determine the Skills Directory Location
 
-不同 AI 工具的 skills 目录位置可能不同：
-- **Cursor**: `~/.cursor/skills` (Linux/Mac) 或 `%USERPROFILE%\.cursor\skills` (Windows)
-- **Claude Code**: `~/.codebuddy/skills` (Linux/Mac) 或 `%USERPROFILE%\.codebuddy\skills` (Windows)
-- **Windsurf**: `~/.windsurf/skills` (Linux/Mac) 或 `%USERPROFILE%\.windsurf\skills` (Windows)
-- **其他工具**: 请查阅相应文档
+The skills directory location may vary for different AI tools:
+- **Cursor**: `~/.cursor/skills` (Linux/Mac) or `%USERPROFILE%\.cursor\skills` (Windows)
+- **Claude Code**: `~/.codebuddy/skills` (Linux/Mac) or `%USERPROFILE%\.codebuddy\skills` (Windows)
+- **Windsurf**: `~/.windsurf/skills` (Linux/Mac) or `%USERPROFILE%\.windsurf\skills` (Windows)
+- **Other tools**: Please refer to the respective documentation.
 
-### 在 Ubuntu/Linux/Mac 上
+### On Ubuntu/Linux/Mac
 
 ```bash
-# 将 SKILLS_DIR 替换为你的 AI 工具的 skills 目录路径
-SKILLS_DIR=~/.cursor/skills  # 或 ~/.codebuddy/skills 等
+# Replace SKILLS_DIR with the path to your AI tool's skills directory
+SKILLS_DIR=~/.cursor/skills  # or ~/.codebuddy/skills, etc.
 cd $SKILLS_DIR
 git clone https://github.com/Konggou/my_skills.git .
-# 初始化并更新 submodule
+# Initialize and update submodules
 git submodule update --init --recursive
 ```
 
-### 在 Windows 上
+### On Windows
 
 ```powershell
-# 将 $SKILLS_DIR 替换为你的 AI 工具的 skills 目录路径
-$SKILLS_DIR = "$env:USERPROFILE\.cursor\skills"  # 或 .codebuddy\skills 等
+# Replace $SKILLS_DIR with the path to your AI tool's skills directory
+$SKILLS_DIR = "$env:USERPROFILE\.cursor\skills"  # or .codebuddy\skills, etc.
 cd $SKILLS_DIR
 git clone https://github.com/Konggou/my_skills.git .
-# 初始化并更新 submodule
+# Initialize and update submodules
 git submodule update --init --recursive
 ```
 
-### 配置 AI 编程助手
+### Configure the AI Programming Assistant
 
-不同的 AI 编程助手可能有不同的配置方式。通常需要将技能目录添加到助手的配置中。
+Different AI programming assistants may have different configuration methods. Usually, you need to add the skills directory to the assistant's configuration.
 
-#### 示例：Cursor
+#### Example: Cursor
 
-在 Cursor 中，技能通常位于 `~/.cursor/skills/` 目录。你可以：
+In Cursor, skills are typically located in the `~/.cursor/skills/` directory. You can:
 
-1. **创建符号链接**（推荐）：
+1. **Create Symbolic Links** (Recommended):
    ```bash
    # Linux/macOS
    ln -s /path/to/my_skills/anthropics-skills/skills ~/.cursor/skills/anthropics-skills
@@ -140,7 +140,7 @@ git submodule update --init --recursive
    New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.cursor\skills\anthropics-skills" -Target "C:\path\to\my_skills\anthropics-skills\skills"
    ```
 
-2. **直接复制**（如果符号链接不支持）：
+2. **Direct Copy** (if symbolic links are not supported):
    ```bash
    cp -r anthropics-skills/skills/* ~/.cursor/skills/
    cp -r vercel-agent-skills/skills/* ~/.cursor/skills/
@@ -148,186 +148,186 @@ git submodule update --init --recursive
    cp -r custom/* ~/.cursor/skills/
    ```
 
-#### 示例：其他 AI 编程助手
+#### Example: Other AI Programming Assistants
 
-请参考你使用的 AI 编程助手的官方文档，了解如何配置技能目录。大多数助手支持：
-- 递归查找子目录中的技能
-- 通过配置文件指定技能路径
-- 自动发现符合特定格式的技能目录
+Please refer to the official documentation of the AI programming assistant you are using to learn how to configure the skills directory. Most assistants support:
+- Recursive search for skills in subdirectories
+- Specifying skill paths via a configuration file
+- Automatic discovery of skill directories that match a specific format
 
-## 更新技能
+## Updating Skills
 
-### 更新所有 Submodule
+### Update All Submodules
 
 ```bash
-cd $SKILLS_DIR  # 你的 skills 目录
+cd $SKILLS_DIR  # Your skills directory
 git submodule update --remote --merge
 ```
 
-### 更新特定的 Submodule
+### Update a Specific Submodule
 
 ```bash
-# 更新 Anthropics 官方技能
+# Update Official Anthropics Skills
 cd $SKILLS_DIR/anthropics-skills
 git pull origin main
 cd $SKILLS_DIR
 git add anthropics-skills
-git commit -m "更新 Anthropics 技能"
+git commit -m "Update Anthropics skills"
 
-# 更新 Vercel 技能
+# Update Vercel Skills
 cd $SKILLS_DIR/vercel-agent-skills
 git pull origin main
 cd $SKILLS_DIR
 git add vercel-agent-skills
-git commit -m "更新 Vercel 技能"
+git commit -m "Update Vercel skills"
 
-# 更新 Skills Updater
+# Update Skills Updater
 cd $SKILLS_DIR/skills-updater
 git pull origin main
 cd $SKILLS_DIR
 git add skills-updater
-git commit -m "更新 Skills Updater"
+git commit -m "Update Skills Updater"
 ```
 
-### 更新本地技能（在主仓库中管理）
+### Update Local Skills (managed in the main repository)
 
 ```bash
 cd $SKILLS_DIR
 git pull origin main
 ```
 
-### 提交 Submodule 更新
+### Commit Submodule Updates
 
-更新 Submodule 后，需要提交主仓库以记录新的 Submodule 版本：
+After updating submodules, you need to commit the main repository to record the new submodule versions:
 
 ```bash
 git add anthropics-skills vercel-agent-skills skills-updater
-git commit -m "更新技能 Submodule"
+git commit -m "Update skill submodules"
 git push
 ```
 
-## 技能管理说明
+## Skill Management Notes
 
-### Git Submodule（可独立更新）
+### Git Submodules (can be updated independently)
 
-以下技能使用 Git Submodule 管理，保留自己的 Git 仓库，可以独立更新：
+The following skills are managed using Git Submodules, retaining their own Git repositories and can be updated independently:
 
-- **anthropics-skills/** - Anthropics 官方技能仓库
-- **vercel-agent-skills/** - Vercel Labs 技能仓库
-- **skills-updater/** - 技能更新管理工具
+- **anthropics-skills/** - Official Anthropics Skills Repository
+- **vercel-agent-skills/** - Vercel Labs Skills Repository
+- **skills-updater/** - Skill Update Management Tool
 
-### 文件夹组织
+### Folder Organization
 
-- **external/** - 存放从外部来源添加的技能（通过 `npx skills add` 等工具）
-- **custom/** - 存放本地创建的技能
+- **external/** - For skills added from external sources (e.g., via `npx skills add`)
+- **custom/** - For locally created skills
 
-大多数支持 skills 的 AI 工具都会递归查找子目录中的技能，因此不需要符号链接即可识别 `external/` 和 `custom/` 目录中的技能。
+Most AI tools that support skills will recursively search for skills in subdirectories, so symbolic links are not needed to recognize skills in the `external/` and `custom/` directories.
 
-### 添加新技能
+### Adding New Skills
 
-#### 从外部源添加
+#### Add from an External Source
 
-使用 `npx skills add` 工具：
+Use the `npx skills add` tool:
 
 ```bash
 npx skills add <repository-url-or-name>
 ```
 
-例如：
+For example:
 ```bash
 npx skills add obra/superpowers
 npx skills add hyf0/vue-skills
 ```
 
-#### 创建本地技能
+#### Create a Local Skill
 
-1. 在 `custom/` 目录下创建新文件夹
-2. 按照你使用的 AI 编程助手的技能格式要求创建 `SKILL.md` 文件
-3. 参考现有技能的结构和格式
+1. Create a new folder in the `custom/` directory.
+2. Create a `SKILL.md` file according to the skill format requirements of your AI programming assistant.
+3. Refer to the structure and format of existing skills.
 
-## 实用工具
+## Utilities
 
 ### `move_skills.py`
 
-此脚本用于整理技能目录，将分散在各子目录（如 `anthropics-skills/skills`, `custom/` 等）中的技能移动到根技能目录 (`~/.trae/skills`)。这对于一些不支持递归搜索技能的 AI 助手非常有用。
+This script is used to organize the skills directory by moving skills from various subdirectories (e.g., `anthropics-skills/skills`, `custom/`) to the root skills directory (`~/.trae/skills`). This is useful for AI assistants that do not support recursive skill searching.
 
-**用法**:
+**Usage**:
 
 ```bash
 python move_skills.py
 ```
 
-脚本会自动检测操作系统并找到正确的技能根目录。
+The script will automatically detect the operating system and find the correct root skills directory.
 
-## 跨工具使用
+## Cross-Tool Usage
 
-本技能集合设计为通用格式，可以在多个 AI 编程助手工具之间共享：
+This skill collection is designed in a universal format and can be shared among multiple AI programming assistant tools:
 
-1. **符号链接方式**（推荐，避免重复存储）：
+1. **Symbolic Link Method** (Recommended, avoids duplicate storage):
    ```bash
-   # Linux/Mac 示例：将一份技能集用于多个工具
+   # Linux/Mac Example: Use one skill set for multiple tools
    ln -s ~/.cursor/skills ~/.codebuddy/skills
    ln -s ~/.cursor/skills ~/.windsurf/skills
    ```
 
    ```powershell
-   # Windows 示例（需要管理员权限）
+   # Windows Example (requires administrator privileges)
    New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.codebuddy\skills" -Target "$env:USERPROFILE\.cursor\skills"
    New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.windsurf\skills" -Target "$env:USERPROFILE\.cursor\skills"
    ```
 
-2. **多仓库克隆方式**（如果不支持符号链接）：
+2. **Multiple Repository Clone Method** (if symbolic links are not supported):
    ```bash
-   # 在每个工具的 skills 目录下克隆
+   # Clone in each tool's skills directory
    cd ~/.cursor/skills && git clone https://github.com/Konggou/my_skills.git .
    cd ~/.codebuddy/skills && git clone https://github.com/Konggou/my_skills.git .
    ```
 
-## 注意事项
+## Notes
 
-- 更新 submodule 后需要提交主仓库以记录新的 submodule 版本
-- 大多数 AI 工具会自动递归查找子目录中的技能，无需符号链接
-- 不同 AI 工具可能对技能格式有轻微差异，使用前请参考各工具文档
-- 使用符号链接方式时，在一个工具中更新技能会自动同步到其他工具
-- 建议定期更新 Submodule 以获取最新功能和修复
+- After updating submodules, you need to commit the main repository to record the new submodule versions.
+- Most AI tools automatically search for skills in subdirectories recursively, no symbolic links needed.
+- Different AI tools may have slight differences in skill format; please refer to each tool's documentation before use.
+- When using the symbolic link method, updating a skill in one tool will automatically sync it to others.
+- It is recommended to update submodules regularly to get the latest features and fixes.
 
-## 技能统计
+## Skill Statistics
 
-- **Git Submodule**: 20 个（Anthropics 16 + Vercel 3 + Skills Updater 1）
-- **外部添加**: 2 个（brainstorming, vue-best-practices）
-- **本地创建**: 5 个（code-review, api-design-principles, project-framework-analyzer, qt-ui-framework, qt-backend-framework）
+- **Git Submodules**: 20 (Anthropics 16 + Vercel 3 + Skills Updater 1)
+- **Externally Added**: 2 (brainstorming, vue-best-practices)
+- **Locally Created**: 5 (code-review, api-design-principles, project-framework-analyzer, qt-ui-framework, qt-backend-framework)
 
-**总计：27 个技能**
+**Total: 27 Skills**
 
-## 兼容性
+## Compatibility
 
-本技能仓库兼容以下 AI 编程助手：
+This skill repository is compatible with the following AI programming assistants:
 
 - ✅ Cursor
 - ✅ CodeBuddy Code / Claude Code
 - ✅ Windsurf
-- ✅ 其他支持类似技能格式的 AI 助手
+- ✅ Other AI assistants that support a similar skill format
 
-> **注意**: 不同 AI 编程助手可能使用不同的技能格式和配置方式。本仓库主要遵循 Cursor 和 Claude 的技能格式规范，但结构设计通用，可以适配其他支持类似机制的 AI 助手。
+> **Note**: Different AI programming assistants may use different skill formats and configuration methods. This repository primarily follows the skill format specifications of Cursor and Claude, but its structure is designed to be universal and can be adapted to other AI assistants that support similar mechanisms.
 
-## 贡献
+## Contributing
 
-欢迎贡献新的技能或改进现有技能！请遵循以下步骤：
+Contributions of new skills or improvements to existing ones are welcome! Please follow these steps:
 
-1. Fork 本仓库
-2. 创建你的功能分支 (`git checkout -b feature/AmazingSkill`)
-3. 提交你的更改 (`git commit -m 'Add some AmazingSkill'`)
-4. 推送到分支 (`git push origin feature/AmazingSkill`)
-5. 开启 Pull Request
+1. Fork this repository.
+2. Create your feature branch (`git checkout -b feature/AmazingSkill`).
+3. Commit your changes (`git commit -m 'Add some AmazingSkill'`).
+4. Push to the branch (`git push origin feature/AmazingSkill`).
+5. Open a Pull Request.
 
-## 相关链接
+## Related Links
 
-- **本仓库**: [https://github.com/Konggou/my_skills](https://github.com/Konggou/my_skills)
+- **This Repository**: [https://github.com/Konggou/my_skills](https://github.com/Konggou/my_skills)
 - **Anthropics Skills**: [https://github.com/anthropics/skills](https://github.com/anthropics/skills)
 - **Vercel Agent Skills**: [https://github.com/vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
 - **Skills Updater**: [https://github.com/yizhiyanhua-ai/skills-updater](https://github.com/yizhiyanhua-ai/skills-updater)
-- **Cursor Skills 文档**: [https://docs.cursor.com](https://docs.cursor.com)
+- **Cursor Skills Documentation**: [https://docs.cursor.com](https://docs.cursor.com)
 
-## 许可证
+## License
 
-本仓库中的技能可能使用不同的许可证。请查看各个技能目录中的 LICENSE 文件了解详情。
+The skills in this repository may use different licenses. Please check the LICENSE files in the individual skill directories for details.

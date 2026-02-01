@@ -1,6 +1,11 @@
 ---
 name: qt-ui-framework
-description: Qt UI framework scaffolding for desktop apps. Supports C++ (Qt Widgets) and Python (PyQt5/PyQt6). Use when creating a new Qt project, scaffolding the UI layer, or bootstrapping a minimal runnable Qt window app. Follows frontend-backend separation: the UI layer handles presentation and user interaction only, no business logic.
+description: >-
+  Qt UI framework scaffolding for desktop apps. Supports C++ (Qt Widgets) and
+  Python (PyQt5/PyQt6). Use when creating a new Qt project, scaffolding the UI
+  layer, or bootstrapping a minimal runnable Qt window app. Follows
+  frontend-backend separation: the UI layer handles presentation and user
+  interaction only, no business logic.
 ---
 
 # Qt UI Framework Scaffolding

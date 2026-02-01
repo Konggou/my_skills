@@ -15,6 +15,7 @@ Skills are a mechanism for extending the capabilities of AI programming assistan
 ├── skills-updater/              # Git Submodule: Skill Update Management Tool
 ├── external/                    # Externally added skills (e.g., via npx add-skill)
 │   ├── brainstorming/           # Brainstorming skill (Source: obra/superpowers)
+│   ├── find-skills/             # Skill discovery helper (Source: vercel-labs/skills)
 │   └── vue-best-practices/      # Vue 3 best practices (Source: hyf0/vue-skills)
 └── custom/                      # Locally created skills
     ├── code-review/             # Code review skill
@@ -46,13 +47,19 @@ Skills are a mechanism for extending the capabilities of AI programming assistan
 - **Location**: `skills-updater/`
 - **Description**: A utility for managing and updating skills.
 
-### 2. Externally Added Skills (2, managed in the main repository)
+### 2. Externally Added Skills (3, managed in the main repository)
 
 - **brainstorming**
   - **Source**: [obra/superpowers](https://github.com/obra/superpowers)
   - **Location**: `external/brainstorming/`
   - **How to add**: `npx skills add obra/superpowers`
   - **Description**: Used before creative work to explore user intent, needs, and design.
+
+- **find-skills**
+  - **Source**: [vercel-labs/skills](https://github.com/vercel-labs/skills)
+  - **Location**: `external/find-skills/`
+  - **How to add**: `npx skills add https://github.com/vercel-labs/skills --skill find-skills`
+  - **Description**: Helps users discover and install agent skills when they ask "how do I do X", "find a skill for X", or express interest in extending capabilities.
 
 - **vue-best-practices**
   - **Source**: [hyf0/vue-skills](https://github.com/hyf0/vue-skills)
@@ -294,10 +301,10 @@ This skill collection is designed in a universal format and can be shared among 
 ## Skill Statistics
 
 - **Git Submodules**: 20 (Anthropics 16 + Vercel 3 + Skills Updater 1)
-- **Externally Added**: 2 (brainstorming, vue-best-practices)
+- **Externally Added**: 3 (brainstorming, find-skills, vue-best-practices)
 - **Locally Created**: 5 (code-review, api-design-principles, project-framework-analyzer, qt-ui-framework, qt-backend-framework)
 
-**Total: 27 Skills**
+**Total: 28 Skills**
 
 ## Compatibility
 
@@ -324,6 +331,7 @@ Contributions of new skills or improvements to existing ones are welcome! Please
 
 - **This Repository**: [https://github.com/Konggou/my_skills](https://github.com/Konggou/my_skills)
 - **Anthropics Skills**: [https://github.com/anthropics/skills](https://github.com/anthropics/skills)
+- **Vercel Skills**: [https://github.com/vercel-labs/skills](https://github.com/vercel-labs/skills)
 - **Vercel Agent Skills**: [https://github.com/vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
 - **Skills Updater**: [https://github.com/yizhiyanhua-ai/skills-updater](https://github.com/yizhiyanhua-ai/skills-updater)
 - **Cursor Skills Documentation**: [https://docs.cursor.com](https://docs.cursor.com)

@@ -292,11 +292,13 @@ This skill collection is designed in a universal format and can be shared among 
 
 ## Notes
 
+- 全局规则：生成的解释说明文档以及回答都使用中文。
 - After updating submodules, you need to commit the main repository to record the new submodule versions.
 - Most AI tools automatically search for skills in subdirectories recursively, no symbolic links needed.
 - Different AI tools may have slight differences in skill format; please refer to each tool's documentation before use.
 - When using the symbolic link method, updating a skill in one tool will automatically sync it to others.
 - It is recommended to update submodules regularly to get the latest features and fixes.
+
 
 ## Skill Statistics
 

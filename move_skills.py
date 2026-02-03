@@ -2,44 +2,104 @@ import os
 import shutil
 from pathlib import Path
 
-def get_skills_root():
-    # 获取用户主目录
-    home = Path.home()
-    # 根据操作系统确定技能根目录
-    if os.name == 'nt':  # Windows
-        return home / '.trae' / 'skills'
-    else:  # Linux, macOS, etc.
-        return home / '.trae' / 'skills'
+def CopySkillsFromDirectories(source_directories: list[Path], destination: Path) -> None:
+    """
+    Copy skills from specified source directories to destination directory
+    
+    Args:
+        source_directories: List of source directories, each may contain skill subdirectories or have skills in a 'skills' subdirectory
+        destination: Destination directory (current working directory)
+    """
+    if not destination.exists():
+        destination.mkdir(parents=True, exist_ok=True)
+        print(f"Created destination directory: {destination}")
+    
+    copied_count = 0
+    skipped_count = 0
+    
+    for source_dir in source_directories:
+        if not source_dir.exists():
+            print(f"Source directory does not exist, skipping: {source_dir}")
+            continue
+        
+        if not source_dir.is_dir():
+            print(f"Not a directory, skipping: {source_dir}")
+            continue
+        
+        print(f"\nProcessing directory: {source_dir}")
+        
+        # Check if 'skills' subdirectory exists (e.g., anthropics-skills/skills)
+        skills_subdir = source_dir / 'skills'
+        if skills_subdir.exists() and skills_subdir.is_dir():
+            # Copy from skills subdirectory
+            copied, skipped = ProcessSkillDirectory(skills_subdir, destination)
+        else:
+            # Copy directly from current directory
+            copied, skipped = ProcessSkillDirectory(source_dir, destination)
+        
+        copied_count += copied
+        skipped_count += skipped
+    
+    print(f"\nCopy completed. Copied: {copied_count}, Skipped: {skipped_count}")
+
+def ProcessSkillDirectory(source_dir: Path, destination: Path) -> tuple[int, int]:
+    """
+    Process all skill subdirectories in the source directory
+    
+    Args:
+        source_dir: Source directory
+        destination: Destination directory
+    
+    Returns:
+        (number of copied items, number of skipped items)
+    """
+    copied_count = 0
+    skipped_count = 0
+    
+    for item in source_dir.iterdir():
+        if not item.is_dir():
+            continue
+        
+        # Skip hidden directories and special directories
+        if item.name.startswith('.') or item.name in ['__pycache__', 'node_modules']:
+            continue
+        
+        destination_path = destination / item.name
+        
+        if destination_path.exists():
+            print(f"  ⚠️  Skill '{item.name}' already exists in destination, skipping.")
+            skipped_count += 1
+        else:
+            try:
+                print(f"  📦 Copying '{item.name}' to {destination}")
+                shutil.copytree(str(item), str(destination_path), dirs_exist_ok=False)
+                copied_count += 1
+            except Exception as e:
+                print(f"  ❌ Failed to copy '{item.name}': {e}")
+                skipped_count += 1
+    
+    return copied_count, skipped_count
 
 def main():
-    skills_root = get_skills_root()
-
-    if not skills_root.exists():
-        print(f"技能目录 '{skills_root}' 不存在。脚本将退出。")
-        return
-
-    nested_skill_paths = [
-        skills_root / 'anthropics-skills' / 'skills',
-        skills_root / 'vercel-agent-skills' / 'skills',
-        skills_root / 'external',
-        skills_root / 'custom'
+    # Get the directory where the script is located
+    script_dir = Path(__file__).parent
+    
+    # Define source directory list (relative to script directory)
+    source_directories = [
+        script_dir / 'anthropics-skills',
+        script_dir / 'custom',
+        script_dir / 'external',
+        script_dir / 'vercel-agent-skills'
     ]
-
-    for path in nested_skill_paths:
-        if path.exists() and path.is_dir():
-            print(f"正在处理目录: {path}")
-            for skill_dir in path.iterdir():
-                if skill_dir.is_dir():
-                    destination_path = skills_root / skill_dir.name
-                    if destination_path.exists():
-                        print(f"技能 '{skill_dir.name}' 已存在于根目录，跳过。")
-                    else:
-                        print(f"正在移动 '{skill_dir.name}' 到根技能目录。")
-                        shutil.move(str(skill_dir), str(skills_root))
-        else:
-            print(f"目录未找到: {path}，跳过。")
-
-    print("技能移动完成。")
+    
+    # Destination directory is the current working directory
+    destination = Path.cwd()
+    
+    print(f"Script directory: {script_dir}")
+    print(f"Destination directory: {destination}")
+    print(f"Number of source directories: {len(source_directories)}")
+    
+    CopySkillsFromDirectories(source_directories, destination)
 
 if __name__ == "__main__":
     main()

@@ -1,173 +1,173 @@
 ---
 name: project-framework-analyzer
-description: 分析项目框架架构、功能模块和模块间关系的技能。当用户需要理解项目结构、分析代码架构、识别模块功能、梳理模块依赖关系或生成项目框架图时使用此技能。适用于分析任何类型的代码项目（Python、TypeScript、Vue、C++、ROS2等），帮助快速理解项目整体架构和设计模式。
+description: Analyze project architecture, functional modules, and their relationships. Use when users need to understand project structure, analyze code architecture, identify module responsibilities, map dependencies, or generate framework diagrams. Applicable to any codebase (Python, TypeScript, Vue, C++, ROS2, etc.) to quickly grasp overall architecture and design patterns.
 ---
 
-# 项目框架分析器
+# Project Framework Analyzer
 
-## 概述
+## Overview
 
-本技能提供系统化的项目框架分析方法，通过多步骤分析流程，帮助理解项目的整体架构、功能模块、模块间关系，并生成可视化的框架图。
+This skill provides a systematic framework analysis workflow to understand a project’s overall architecture, functional modules, and inter-module relationships, and to generate visual framework diagrams.
 
-## 分析工作流程
+## Analysis Workflow
 
-### 第一步：项目结构探索
+### Step 1: Project Structure Exploration
 
-1. **识别项目根目录和主要目录结构**
-   - 使用 `list_dir` 查看项目根目录
-   - 识别前端/后端目录、配置文件、文档目录
-   - 注意 `.gitignore`、`package.json`、`requirements.txt` 等配置文件
+1. **Identify the project root and key directories**
+   - Use `list_dir` to inspect the root directory
+   - Identify frontend/backend directories, config files, docs directories
+   - Note `.gitignore`, `package.json`, `requirements.txt`, etc.
 
-2. **识别技术栈**
-   - 查看依赖文件（`package.json`、`requirements.txt`、`CMakeLists.txt` 等）
-   - 识别主要框架和库（Vue、React、Flask、ROS2 等）
-   - 识别编程语言（Python、TypeScript、C++ 等）
+2. **Identify the tech stack**
+   - Check dependency files (`package.json`, `requirements.txt`, `CMakeLists.txt`, etc.)
+   - Identify major frameworks and libraries (Vue, React, Flask, ROS2, etc.)
+   - Identify programming languages (Python, TypeScript, C++, etc.)
 
-3. **理解项目组织模式**
-   - 识别分层架构（前端/后端分离、MVC、微服务等）
-   - 识别模块化组织方式（按功能、按层次、按领域）
+3. **Understand project organization patterns**
+   - Identify layered architectures (frontend/backend split, MVC, microservices, etc.)
+   - Identify module organization style (by feature, layer, or domain)
 
-### 第二步：框架架构分析
+### Step 2: Architecture Analysis
 
-1. **识别核心架构模式**
-   - 客户端-服务器架构
-   - 前后端分离架构
-   - 微服务架构
-   - 事件驱动架构
-   - ROS2 节点架构
+1. **Identify core architectural patterns**
+   - Client-server architecture
+   - Frontend-backend separation
+   - Microservices architecture
+   - Event-driven architecture
+   - ROS2 node architecture
 
-2. **识别主要组件层次**
-   - 前端层：UI 组件、状态管理、路由
-   - 后端层：API 接口、业务逻辑、数据访问
-   - 通信层：WebSocket、REST API、ROS2 Topics
-   - 基础设施层：数据库、文件系统、外部服务
+2. **Identify major component layers**
+   - Frontend layer: UI components, state management, routing
+   - Backend layer: APIs, business logic, data access
+   - Communication layer: WebSocket, REST APIs, ROS2 Topics
+   - Infrastructure layer: databases, filesystem, external services
 
-3. **分析依赖关系**
-   - 使用 `codebase_search` 查找导入/依赖关系
-   - 识别模块间的导入关系
-   - 识别服务间的调用关系
+3. **Analyze dependencies**
+   - Use `codebase_search` to find imports/dependencies
+   - Identify module import relationships
+   - Identify service call relationships
 
-### 第三步：功能模块分析
+### Step 3: Functional Module Analysis
 
-1. **识别功能模块**
-   - 通过目录结构识别模块边界
-   - 通过 API 路由识别功能域
-   - 通过组件/类名识别功能职责
+1. **Identify functional modules**
+   - Use directory structure to identify module boundaries
+   - Use API routes to identify functional domains
+   - Use component/class names to infer responsibilities
 
-2. **分析每个模块的功能**
-   - 读取模块的主要文件
-   - 识别模块的输入输出
-   - 识别模块的核心功能
-   - 识别模块的依赖和被依赖关系
+2. **Analyze each module’s behavior**
+   - Read key files in the module
+   - Identify module inputs and outputs
+   - Identify core functionality
+   - Identify dependencies and dependents
 
-3. **记录模块信息**
-   - 模块名称和位置
-   - 主要功能描述
-   - 关键类和函数
-   - 依赖的其他模块
-   - 被哪些模块依赖
+3. **Record module information**
+   - Module name and location
+   - Main responsibilities
+   - Key classes and functions
+   - Dependencies
+   - Dependents
 
-### 第四步：模块关系串联
+### Step 4: Connect Module Relationships
 
-1. **构建依赖图**
-   - 梳理模块间的直接依赖关系
-   - 识别循环依赖（如果有）
-   - 识别核心模块和边缘模块
+1. **Build a dependency graph**
+   - Map direct dependencies between modules
+   - Identify cyclic dependencies (if any)
+   - Identify core vs. peripheral modules
 
-2. **识别数据流**
-   - 前端到后端的数据流
-   - 后端内部的数据流
-   - 事件/消息的流转路径
+2. **Identify data flow**
+   - Frontend-to-backend data flow
+   - Backend internal data flow
+   - Event/message propagation paths
 
-3. **识别控制流**
-   - 用户交互到系统响应的流程
-   - 业务流程的执行路径
-   - 异常处理的流程
+3. **Identify control flow**
+   - User interaction → system response
+   - Business process execution paths
+   - Error handling flows
 
-### 第五步：生成框架图
+### Step 5: Generate Framework Diagrams
 
-1. **选择图表类型**
-   - **架构图**：展示系统整体架构和层次
-   - **模块关系图**：展示模块间的依赖关系
-   - **数据流图**：展示数据在系统中的流转
-   - **组件图**：展示组件间的交互关系
+1. **Choose diagram types**
+   - **Architecture diagram**: overall system structure and layers
+   - **Module relationship diagram**: dependencies between modules
+   - **Data flow diagram**: data movement across the system
+   - **Component diagram**: interactions between components
 
-2. **使用 Mermaid 语法生成图表**
-   - 参考 `assets/framework-diagram-template.md` 中的模板
-   - 使用流程图、类图、组件图等 Mermaid 图表类型
-   - 确保图表清晰、层次分明
+2. **Generate diagrams using Mermaid**
+   - Refer to `assets/framework-diagram-template.md`
+   - Use flowcharts, class diagrams, component diagrams, etc.
+   - Keep diagrams clear and layered
 
-3. **生成分析报告**
-   - 项目概述
-   - 架构说明
-   - 模块功能列表
-   - 模块关系说明
-   - 框架图
+3. **Produce the analysis report**
+   - Project overview
+   - Architecture summary
+   - Functional module list
+   - Module relationship summary
+   - Framework diagrams
 
-## 分析技巧
+## Analysis Tips
 
-### 代码搜索策略
+### Code Search Strategy
 
-- 使用 `codebase_search` 进行语义搜索，查找相关功能
-- 使用 `grep` 查找特定的导入、类名、函数名
-- 使用 `read_file` 深入阅读关键文件
+- Use `codebase_search` for semantic search
+- Use `grep` to find specific imports, class names, function names
+- Use `read_file` to inspect critical files
 
-### 模块识别模式
+### Module Identification Patterns
 
-- **按目录结构**：`src/components/`、`src/api/`、`server/api/` 等
-- **按命名约定**：`*Controller`、`*Service`、`*Module` 等
-- **按配置文件**：路由配置、API 端点定义
+- **By directory structure**: `src/components/`, `src/api/`, `server/api/`, etc.
+- **By naming conventions**: `*Controller`, `*Service`, `*Module`, etc.
+- **By config files**: routing configs, API endpoint definitions
 
-### 依赖关系识别
+### Dependency Identification
 
-- 查看 `import`/`require` 语句
-- 查看 API 调用
-- 查看配置文件中的依赖声明
-- 查看 WebSocket 事件订阅
+- Inspect `import`/`require` statements
+- Inspect API calls
+- Inspect dependency declarations in config files
+- Inspect WebSocket event subscriptions
 
-## 输出格式
+## Output Format
 
-### 分析报告结构
+### Analysis Report Structure
 
 ```markdown
-# [项目名称] 框架分析报告
+# [Project Name] Framework Analysis Report
 
-## 1. 项目概述
-- 项目类型：[前端/后端/全栈/ROS2等]
-- 主要技术栈：[列出主要技术]
-- 项目结构：[简要描述目录结构]
+## 1. Project Overview
+- Project type: [frontend/backend/full-stack/ROS2/etc]
+- Tech stack: [list main technologies]
+- Project structure: [brief directory summary]
 
-## 2. 架构分析
-- 架构模式：[客户端-服务器/微服务/事件驱动等]
-- 主要层次：[列出主要层次]
-- 通信方式：[REST/WebSocket/ROS2 Topics等]
+## 2. Architecture Analysis
+- Architecture pattern: [client-server/microservices/event-driven/etc]
+- Major layers: [list layers]
+- Communication: [REST/WebSocket/ROS2 Topics/etc]
 
-## 3. 功能模块列表
-### 模块1：[模块名]
-- 位置：[文件路径]
-- 功能：[功能描述]
-- 依赖：[依赖的模块]
-- 被依赖：[依赖此模块的模块]
+## 3. Functional Modules
+### Module 1: [Module Name]
+- Location: [file path]
+- Responsibility: [description]
+- Dependencies: [modules depended on]
+- Dependents: [modules depending on this]
 
-### 模块2：[模块名]
+### Module 2: [Module Name]
 ...
 
-## 4. 模块关系图
-[使用 Mermaid 语法生成的图表]
+## 4. Module Relationship Diagram
+[Mermaid diagram]
 
-## 5. 系统架构图
-[使用 Mermaid 语法生成的图表]
+## 5. System Architecture Diagram
+[Mermaid diagram]
 ```
 
-## 参考资源
+## References
 
-- **分析模式**：参见 `references/analysis-patterns.md` 了解不同项目类型的分析模式
-- **图表模板**：参见 `assets/framework-diagram-template.md` 获取 Mermaid 图表模板
+- **Analysis patterns**: see `references/analysis-patterns.md`
+- **Diagram templates**: see `assets/framework-diagram-template.md`
 
-## 注意事项
+## Notes
 
-1. **渐进式分析**：先整体后局部，先结构后细节
-2. **多角度验证**：通过代码、配置、文档多个角度验证理解
-3. **关注关键路径**：重点关注核心业务流程和关键模块
-4. **保持简洁**：框架图应简洁明了，避免过度复杂
-5. **中文输出**：所有分析报告和说明使用中文
+1. **Progressive analysis**: start broad, then deep
+2. **Multi-angle validation**: validate via code, config, and docs
+3. **Focus on critical paths**: prioritize core flows and modules
+4. **Keep it concise**: diagrams should be clear and minimal
+5. **English output**: write reports and explanations in English

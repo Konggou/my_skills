@@ -1,239 +1,239 @@
-# 项目分析模式参考
+# Project Analysis Patterns Reference
 
-本文档提供不同项目类型的分析模式和最佳实践。
+This document provides analysis patterns and best practices for different project types.
 
-## 目录
+## Contents
 
-1. [前端项目分析](#前端项目分析)
-2. [后端项目分析](#后端项目分析)
-3. [全栈项目分析](#全栈项目分析)
-4. [ROS2 项目分析](#ros2-项目分析)
-5. [微服务项目分析](#微服务项目分析)
+1. [Frontend Project Analysis](#frontend-project-analysis)
+2. [Backend Project Analysis](#backend-project-analysis)
+3. [Full-Stack Project Analysis](#full-stack-project-analysis)
+4. [ROS2 Project Analysis](#ros2-project-analysis)
+5. [Microservices Project Analysis](#microservices-project-analysis)
 
-## 前端项目分析
+## Frontend Project Analysis
 
-### 典型结构
+### Typical Structure
 
 ```
 frontend/
 ├── src/
-│   ├── components/     # UI 组件
-│   ├── views/          # 页面视图
-│   ├── api/            # API 客户端
-│   ├── store/          # 状态管理
-│   ├── router/         # 路由配置
-│   ├── utils/          # 工具函数
-│   └── types/          # 类型定义
-├── public/             # 静态资源
-└── package.json        # 依赖配置
+│   ├── components/     # UI components
+│   ├── views/          # Page views
+│   ├── api/            # API client
+│   ├── store/          # State management
+│   ├── router/         # Routing configuration
+│   ├── utils/          # Utility functions
+│   └── types/          # Type definitions
+├── public/             # Static assets
+└── package.json        # Dependencies
 ```
 
-### 分析重点
+### Key Focus Areas
 
-1. **组件层次结构**
-   - 识别基础组件和业务组件
-   - 识别页面级组件和功能组件
-   - 分析组件的复用性
+1. **Component hierarchy**
+   - Identify base components and business components
+   - Identify page-level components vs. feature components
+   - Evaluate component reuse patterns
 
-2. **状态管理**
-   - 识别全局状态和局部状态
-   - 分析状态流转路径
-   - 识别状态管理库（Vuex/Pinia、Redux、Zustand 等）
+2. **State management**
+   - Identify global vs. local state
+   - Analyze state flow paths
+   - Identify state libraries (Vuex/Pinia, Redux, Zustand, etc.)
 
-3. **路由结构**
-   - 识别路由层级
-   - 分析路由守卫和权限控制
-   - 识别懒加载策略
+3. **Routing structure**
+   - Identify route hierarchy
+   - Analyze route guards and access control
+   - Identify lazy-loading strategies
 
-4. **API 集成**
-   - 识别 API 客户端封装
-   - 分析请求拦截和响应处理
-   - 识别 WebSocket 连接管理
+4. **API integration**
+   - Identify API client abstraction
+   - Analyze request/response handling
+   - Identify WebSocket connection management
 
-### 常见框架
+### Common Frameworks
 
-- **Vue 3**：Composition API、Pinia、Vue Router
-- **React**：Hooks、Redux、React Router
-- **Angular**：Modules、Services、RxJS
+- **Vue 3**: Composition API, Pinia, Vue Router
+- **React**: Hooks, Redux, React Router
+- **Angular**: Modules, Services, RxJS
 
-## 后端项目分析
+## Backend Project Analysis
 
-### 典型结构
+### Typical Structure
 
 ```
 backend/
 ├── server/
-│   ├── api/            # API 路由
-│   ├── basic/          # 业务逻辑
-│   ├── models/         # 数据模型
-│   ├── utils/          # 工具函数
-│   └── app.py          # 应用入口
-├── include/            # 共享库
-└── requirements.txt    # 依赖配置
+│   ├── api/            # API routes
+│   ├── basic/          # Business logic
+│   ├── models/         # Data models
+│   ├── utils/          # Utilities
+│   └── app.py          # App entry
+├── include/            # Shared libraries
+└── requirements.txt    # Dependencies
 ```
 
-### 分析重点
+### Key Focus Areas
 
-1. **API 层**
-   - 识别 RESTful API 端点
-   - 分析路由组织方式
-   - 识别中间件和拦截器
+1. **API layer**
+   - Identify RESTful endpoints
+   - Analyze route organization
+   - Identify middleware and interceptors
 
-2. **业务逻辑层**
-   - 识别服务类和方法
-   - 分析业务规则实现
-   - 识别事务边界
+2. **Business logic layer**
+   - Identify service classes and methods
+   - Analyze business rules implementation
+   - Identify transaction boundaries
 
-3. **数据访问层**
-   - 识别数据模型
-   - 分析数据库操作
-   - 识别 ORM 或数据访问模式
+3. **Data access layer**
+   - Identify data models
+   - Analyze database operations
+   - Identify ORM or data access patterns
 
-4. **通信机制**
-   - WebSocket 连接管理
-   - 消息队列使用
-   - 事件发布订阅
+4. **Communication mechanisms**
+   - WebSocket connection management
+   - Message queue usage
+   - Event pub/sub patterns
 
-### 常见框架
+### Common Frameworks
 
-- **Flask**：Blueprint、Flask-SocketIO
-- **Django**：Apps、Models、Views
-- **FastAPI**：Routers、Dependencies、WebSocket
+- **Flask**: Blueprint, Flask-SocketIO
+- **Django**: Apps, Models, Views
+- **FastAPI**: Routers, Dependencies, WebSocket
 
-## 全栈项目分析
+## Full-Stack Project Analysis
 
-### 典型结构
+### Typical Structure
 
 ```
 project/
-├── frontend/           # 前端代码
-├── backend/            # 后端代码
-├── shared/             # 共享代码（可选）
-└── docs/               # 文档
+├── frontend/           # Frontend code
+├── backend/            # Backend code
+├── shared/             # Shared code (optional)
+└── docs/               # Documentation
 ```
 
-### 分析重点
+### Key Focus Areas
 
-1. **前后端分离**
-   - 识别通信接口（REST API、WebSocket）
-   - 分析数据格式约定（JSON Schema）
-   - 识别认证授权机制
+1. **Frontend-backend separation**
+   - Identify communication interfaces (REST API, WebSocket)
+   - Analyze data format conventions (JSON Schema)
+   - Identify authentication/authorization mechanisms
 
-2. **数据流**
-   - 前端到后端的数据流
-   - 后端到前端的响应流
-   - 实时数据推送（WebSocket）
+2. **Data flow**
+   - Frontend-to-backend request flow
+   - Backend-to-frontend response flow
+   - Real-time data push (WebSocket)
 
-3. **部署架构**
-   - 识别构建配置
-   - 分析部署脚本
-   - 识别环境配置
+3. **Deployment architecture**
+   - Identify build configuration
+   - Analyze deployment scripts
+   - Identify environment configuration
 
-## ROS2 项目分析
+## ROS2 Project Analysis
 
-### 典型结构
+### Typical Structure
 
 ```
 ros2_ws/
 ├── src/
 │   └── package_name/
-│       ├── nodes/      # ROS2 节点
-│       ├── launch/      # Launch 文件
-│       ├── config/      # 配置文件
+│       ├── nodes/      # ROS2 nodes
+│       ├── launch/     # Launch files
+│       ├── config/     # Config files
 │       └── CMakeLists.txt
-└── install/             # 安装目录
+└── install/            # Install directory
 ```
 
-### 分析重点
+### Key Focus Areas
 
-1. **节点识别**
-   - 识别发布者节点（Publisher）
-   - 识别订阅者节点（Subscriber）
-   - 识别服务节点（Service/Client）
-   - 识别动作节点（Action）
+1. **Node identification**
+   - Identify publisher nodes
+   - Identify subscriber nodes
+   - Identify service nodes (Service/Client)
+   - Identify action nodes
 
-2. **话题和服务**
-   - 识别话题（Topic）和消息类型
-   - 识别服务（Service）和请求/响应类型
-   - 识别动作（Action）和目标/反馈类型
+2. **Topics and services**
+   - Identify topics and message types
+   - Identify services and request/response types
+   - Identify actions and goal/feedback types
 
-3. **节点关系**
-   - 分析节点间的通信关系
-   - 识别数据流方向
-   - 识别节点启动顺序
+3. **Node relationships**
+   - Analyze inter-node communication
+   - Identify data flow direction
+   - Identify node startup order
 
-4. **与外部系统集成**
-   - 识别与后端 API 的集成点
-   - 分析数据转换逻辑
-   - 识别硬件接口
+4. **External integrations**
+   - Identify integration points with backend APIs
+   - Analyze data transformation logic
+   - Identify hardware interfaces
 
-## 微服务项目分析
+## Microservices Project Analysis
 
-### 典型结构
+### Typical Structure
 
 ```
 microservices/
-├── service1/           # 服务1
-├── service2/           # 服务2
-├── gateway/            # API 网关
-└── shared/             # 共享库
+├── service1/           # Service 1
+├── service2/           # Service 2
+├── gateway/            # API gateway
+└── shared/             # Shared libraries
 ```
 
-### 分析重点
+### Key Focus Areas
 
-1. **服务边界**
-   - 识别服务职责边界
-   - 分析服务间的接口定义
-   - 识别共享数据模型
+1. **Service boundaries**
+   - Identify service responsibilities
+   - Analyze inter-service interfaces
+   - Identify shared data models
 
-2. **服务通信**
-   - REST API 调用
-   - 消息队列（RabbitMQ、Kafka）
-   - gRPC 调用
+2. **Service communication**
+   - REST API calls
+   - Message queues (RabbitMQ, Kafka)
+   - gRPC calls
 
-3. **服务发现和配置**
-   - 识别服务注册机制
-   - 分析配置管理方式
-   - 识别负载均衡策略
+3. **Service discovery and configuration**
+   - Identify service registry mechanisms
+   - Analyze config management approach
+   - Identify load-balancing strategies
 
-## 通用分析模式
+## General Analysis Patterns
 
-### 1. 自顶向下分析
+### 1. Top-down analysis
 
-1. 从项目根目录开始
-2. 识别主要目录和文件
-3. 深入分析关键模块
-4. 梳理模块间关系
+1. Start from the project root
+2. Identify key directories and files
+3. Deep dive into critical modules
+4. Map module relationships
 
-### 2. 自底向上分析
+### 2. Bottom-up analysis
 
-1. 从具体文件开始
-2. 识别文件的功能
-3. 向上归纳到模块
-4. 构建整体架构
+1. Start from concrete files
+2. Identify file responsibilities
+3. Generalize into modules
+4. Build the overall architecture
 
-### 3. 关键路径分析
+### 3. Critical path analysis
 
-1. 识别核心业务流程
-2. 追踪数据流转路径
-3. 分析关键模块
-4. 识别性能瓶颈点
+1. Identify core business flows
+2. Trace data movement
+3. Analyze key modules
+4. Identify potential bottlenecks
 
-### 4. 依赖关系分析
+### 4. Dependency analysis
 
-1. 识别直接依赖
-2. 识别间接依赖
-3. 识别循环依赖
-4. 识别核心依赖
+1. Identify direct dependencies
+2. Identify indirect dependencies
+3. Identify cyclic dependencies
+4. Identify core dependencies
 
-## 分析检查清单
+## Analysis Checklist
 
-- [ ] 项目根目录结构已识别
-- [ ] 技术栈已明确
-- [ ] 主要模块已列出
-- [ ] 模块功能已描述
-- [ ] 模块依赖关系已梳理
-- [ ] 数据流已分析
-- [ ] 控制流已分析
-- [ ] 框架图已生成
-- [ ] 分析报告已完整
+- [ ] Project root structure identified
+- [ ] Tech stack clarified
+- [ ] Major modules listed
+- [ ] Module responsibilities described
+- [ ] Module dependencies mapped
+- [ ] Data flow analyzed
+- [ ] Control flow analyzed
+- [ ] Framework diagrams generated
+- [ ] Analysis report complete

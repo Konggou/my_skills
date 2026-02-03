@@ -1,10 +1,11 @@
 import os
 import shutil
 from pathlib import Path
+from typing import List, Tuple
 
-def CopySkillsFromDirectories(source_directories: list[Path], destination: Path) -> None:
+def MoveSkillsFromDirectories(source_directories: List[Path], destination: Path) -> None:
     """
-    Copy skills from specified source directories to destination directory
+    Move skills from specified source directories to destination directory
     
     Args:
         source_directories: List of source directories, each may contain skill subdirectories or have skills in a 'skills' subdirectory
@@ -14,7 +15,7 @@ def CopySkillsFromDirectories(source_directories: list[Path], destination: Path)
         destination.mkdir(parents=True, exist_ok=True)
         print(f"Created destination directory: {destination}")
     
-    copied_count = 0
+    moved_count = 0
     skipped_count = 0
     
     for source_dir in source_directories:
@@ -32,17 +33,17 @@ def CopySkillsFromDirectories(source_directories: list[Path], destination: Path)
         skills_subdir = source_dir / 'skills'
         if skills_subdir.exists() and skills_subdir.is_dir():
             # Copy from skills subdirectory
-            copied, skipped = ProcessSkillDirectory(skills_subdir, destination)
+            moved, skipped = ProcessSkillDirectory(skills_subdir, destination)
         else:
-            # Copy directly from current directory
-            copied, skipped = ProcessSkillDirectory(source_dir, destination)
+            # Move directly from current directory
+            moved, skipped = ProcessSkillDirectory(source_dir, destination)
         
-        copied_count += copied
+        moved_count += moved
         skipped_count += skipped
     
-    print(f"\nCopy completed. Copied: {copied_count}, Skipped: {skipped_count}")
+    print(f"\nMove completed. Moved: {moved_count}, Skipped: {skipped_count}")
 
-def ProcessSkillDirectory(source_dir: Path, destination: Path) -> tuple[int, int]:
+def ProcessSkillDirectory(source_dir: Path, destination: Path) -> Tuple[int, int]:
     """
     Process all skill subdirectories in the source directory
     
@@ -51,9 +52,9 @@ def ProcessSkillDirectory(source_dir: Path, destination: Path) -> tuple[int, int
         destination: Destination directory
     
     Returns:
-        (number of copied items, number of skipped items)
+        (number of moved items, number of skipped items)
     """
-    copied_count = 0
+    moved_count = 0
     skipped_count = 0
     
     for item in source_dir.iterdir():
@@ -71,14 +72,14 @@ def ProcessSkillDirectory(source_dir: Path, destination: Path) -> tuple[int, int
             skipped_count += 1
         else:
             try:
-                print(f"  📦 Copying '{item.name}' to {destination}")
-                shutil.copytree(str(item), str(destination_path), dirs_exist_ok=False)
-                copied_count += 1
+                print(f"  📦 Moving '{item.name}' to {destination}")
+                shutil.move(str(item), str(destination_path))
+                moved_count += 1
             except Exception as e:
-                print(f"  ❌ Failed to copy '{item.name}': {e}")
+                print(f"  ❌ Failed to move '{item.name}': {e}")
                 skipped_count += 1
     
-    return copied_count, skipped_count
+    return moved_count, skipped_count
 
 def main():
     # Get the directory where the script is located
@@ -99,7 +100,7 @@ def main():
     print(f"Destination directory: {destination}")
     print(f"Number of source directories: {len(source_directories)}")
     
-    CopySkillsFromDirectories(source_directories, destination)
+    MoveSkillsFromDirectories(source_directories, destination)
 
 if __name__ == "__main__":
     main()
